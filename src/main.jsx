@@ -8,6 +8,8 @@ import "./index.css";
 import Home from "./Layouts/Home";
 import Root from "./routes/Root";
 import Users from "./Components/Users";
+import Update from "./Components/Update";
+
 
 const router = createBrowserRouter([
   {
@@ -31,6 +33,11 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register />,
+      },
+      {
+        path: "/update/:id",
+        element:<Update></Update>,
+        loader : ({params})=>fetch(`http://localhost:5000/users/${params.id}`)
       },
     ],
   },
